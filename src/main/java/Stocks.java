@@ -27,7 +27,7 @@ public class Stocks implements MontrealTradedProducts{
 
     @Override
     public void trade(Product product, int quantity) {
-        this.tradedProduct.put(product, quantity);
+
         if(this.getProductList().contains(product)){
             this.tradedProduct.put(product, quantity);
         }else{
