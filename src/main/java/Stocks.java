@@ -43,8 +43,8 @@ public class Stocks implements MontrealTradedProducts{
 
     @Override
     public double totalValueOfDaysTradedProducts() {
-        Stream<Product> tradedValue = this.tradedProduct.keySet().stream();
-        return tradedValue.mapToDouble(Product::getValue).sum();
+        Stream<Map.Entry<Product, Integer>> tradedValue = this.tradedProduct.entrySet().stream();
+        return tradedValue.mapToDouble(product->product.getValue()*product.getKey().getValue()).sum();
     }
 
     public Map<Product, Integer> getTradedProduct() {
